@@ -12,20 +12,33 @@ Date/Time
 
 # we are building it it imperative style. (imperative style is: top to bottom reading)
 
-notebook = []
+# notebook = []
+
+# counter = 1
+# note_id = counter
+
+
+# counter += 1
+
+# now = date.today()
+# print(now)
+
+# content = "this is content"
+
+# note = (note_id, str(now), content)
+
+# notebook.append(note)
+# print(notebook)
+
 
 counter = 1
-note_id = counter
-
-
-counter += 1
-
+notebook = []
 now = date.today()
-print(now)
 
-content = "this is content"
-
-note = (note_id, str(now), content)
-
-notebook.append(note)
-print(notebook)
+while counter <= 5:
+    content = input("What is the note\n>")
+    note_id = counter
+    note = (note_id, str(now), content)
+    notebook.append(note)
+    counter += 1
+    print(notebook)
