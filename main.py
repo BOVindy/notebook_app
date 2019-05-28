@@ -35,10 +35,32 @@ counter = 1
 notebook = []
 now = date.today()
 
-while counter <= 5:
-    content = input("What is the note\n>")
-    note_id = counter
-    note = (note_id, str(now), content)
-    notebook.append(note)
-    counter += 1
-    print(notebook)
+while True:
+    user_response = input("what would you like to do? \n>"
+                        "1. add a note \n"
+                        "2. print a note \n"
+                        "3. exit\n> "
+        )
+
+
+    if user_response == "1":
+        content = input("What is the note\n>")
+        note_id = counter
+        note = (note_id, str(now), content)
+        notebook.append(note)
+        counter += 1
+    if user_response == "2":
+        for note in notebook:
+            print(f"ID: {note[0]}| {note[2]}")
+    elif user_response == "3":
+        exit()
+    else:
+        print("invalid input")
+
+# while counter <= 5:
+#     content = input("What is the note\n>")
+#     note_id = counter
+#     note = (note_id, str(now), content)
+#     notebook.append(note)
+#     counter += 1
+#     print(notebook)
