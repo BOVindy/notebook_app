@@ -1,0 +1,178 @@
+ben@ben-ThinkPad-T430:~/Desktop/workspace$ cd notebook_app/
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ ls
+README.md
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git push -u origin master
+Username for 'https://github.com': BOVindy
+Password for 'https://BOVindy@github.com': 
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Everything up-to-date
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ code .
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git add .
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git commit -m "got the note feature working, the object is constructed"
+[master 72d2e72] got the note feature working, the object is constructed
+ 1 file changed, 31 insertions(+)
+ create mode 100644 main.py
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git push -u origin master
+Username for 'https://github.com': BOVindy
+Password for 'https://BOVindy@github.com': 
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 535 bytes | 535.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/BOVindy/notebook_app.git
+   f952715..72d2e72  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git add .
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git commit -m "made the content dynamic"
+[master 3f1ec72] made the content dynamic
+ 1 file changed, 23 insertions(+), 10 deletions(-)
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git push origin master
+Username for 'https://github.com': BOVindy
+Password for 'https://BOVindy@github.com': 
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 580 bytes | 580.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/BOVindy/notebook_app.git
+   72d2e72..3f1ec72  master -> master
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git push
+Username for 'https://github.com': BOVindy
+Password for 'https://BOVindy@github.com': 
+Everything up-to-date
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git add .
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git commit -m "added 1, 2, 3 options"
+[master 912ba5b] added 1, 2, 3 options
+ 1 file changed, 29 insertions(+), 7 deletions(-)
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ git push
+Username for 'https://github.com': BOVindy
+Password for 'https://BOVindy@github.com': 
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 753 bytes | 753.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/BOVindy/notebook_app.git
+   3f1ec72..912ba5b  master -> master
+ben@ben-ThinkPad-T430:~/Desktop/workspace/notebook_app$ 
+
+
+from datetime import date
+
+"""
+Notebook app
+
+
+notes will have 3 parts:
+an ID
+Content
+Date/Time
+"""
+
+# we are building it it imperative style. (imperative style is: top to bottom reading)
+
+# notebook = []
+
+# counter = 1
+# note_id = counter
+
+
+# counter += 1
+
+# now = date.today()
+# print(now)
+
+# content = "this is content"
+
+# note = (note_id, str(now), content)
+
+# notebook.append(note)
+# print(notebook)
+
+
+counter = 1
+notebook = []
+now = date.today()
+
+while True:
+    user_response = input("what would you like to do? \n>"
+                        "1. add a note \n"
+                        "2. print a note \n"
+                        "3. exit\n> "
+        )
+
+
+    if user_response == "1":
+        content = input("What is the note\n>")
+        note_id = counter
+        note = (note_id, str(now), content)
+        notebook.append(note)
+        counter += 1
+    if user_response == "2":
+        for note in notebook:
+            print(f"ID: {note[0]}| {note[2]}")
+    elif user_response == "3":
+        exit()
+    else:
+        print("invalid input")
+
+# while counter <= 5:
+#     content = input("What is the note\n>")
+#     note_id = counter
+#     note = (note_id, str(now), content)
+#     notebook.append(note)
+#     counter += 1
+#     print(notebook)
